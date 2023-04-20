@@ -16,7 +16,7 @@ MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 LOG_GROUP_ID = int(getenv("LOG_GROUP_ID"))
 MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "SINGHANIYA MUSIC")
 
-OWNER_ID = list(map(int, getenv("OWNER_ID", "5604140011").split()))
+OWNER_ID = list(map(int, getenv("OWNER_ID", "5407747559").split()))
 
 HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
@@ -25,14 +25,14 @@ UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/team-katil/zedzemusi
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv("GIT_TOKEN", None)
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL","https://t.me/katilsupport")
-SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/katil_bots")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL","https://t.me/RFS_EMPIRE")
+SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/WORLD_FRIENDS_CHATTINGS")
 
 
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", "1000"))
 SONG_DOWNLOAD_DURATION = int(getenv("SONG_DOWNLOAD_DURATION_LIMIT", "180"))
 
-AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", "False")
+AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", "True")
 AUTO_LEAVE_ASSISTANT_TIME = int(
     getenv("ASSISTANT_LEAVE_TIME", "5400")
 )
