@@ -1,4 +1,4 @@
-from AnonX import app 
+from ZedzeX import app 
 import asyncio
 import random
 from pyrogram import Client, filters
